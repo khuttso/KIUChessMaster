@@ -3,4 +3,4 @@ using MediatR;
 
 namespace KIUChessMaster.Application.Features.Users.Command;
     
-public record CreateUserCommand(Guid? UserId, string? Firstname, string? Lastname, string? Email, DateTime? Dob, GenderType? Gender) : IRequest<Guid>;   
+public record CreateUserCommand(Guid? Id, string? Firstname, string? Lastname, string? Email, DateTime? Dob, GenderType? Gender) : IRequest<Guid>;   
