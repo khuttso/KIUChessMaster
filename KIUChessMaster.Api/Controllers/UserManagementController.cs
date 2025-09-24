@@ -12,13 +12,18 @@ public class UserManagementController : ControllerBase
 
     public UserManagementController(IMediator mediator)
     {
-        _mediator = mediator;
+        _mediator = mediator ??  throw new ArgumentNullException(nameof(mediator));
     }
 
     [HttpPost("CreateUser")]
     public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand command,
         CancellationToken cancellationToken = default)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
         var result = await _mediator.Send(command, cancellationToken);
         return Ok(result);
     } 

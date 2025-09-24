@@ -19,11 +19,11 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
     
     public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
-        Guid userId = request.UserId ?? Guid.NewGuid();
+        Guid userId = request.Id ?? Guid.NewGuid();
 
         var user = new User
         {
-            UserId = userId,
+            Id = userId,
             Firstname = request.Firstname!,
             Lastname = request.Lastname!,
             Email = request.Email!,
@@ -40,11 +40,11 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 
             _logger.LogInformation($"User {user.Firstname} {user.Lastname} has been created");
 
-            return user.UserId;
+            return user.Id;
         }
         catch
         {
-            _logger.LogError($"User {user.Firstname} {user.Lastname} with Id = {user.UserId} could not be created");
+            _logger.LogError($"User {user.Firstname} {user.Lastname} with Id = {user.Id} could not be created");
             throw;
         }
     }

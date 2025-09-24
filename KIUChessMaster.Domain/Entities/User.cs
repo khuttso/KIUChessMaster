@@ -3,9 +3,8 @@ using KIUChessMaster.Domain.Enums;
 
 namespace KIUChessMaster.Domain.Entities;
 
-public class User : BaseEntity<long>
+public class User : BaseEntity<Guid>
 {   
-    public Guid UserId { get; set; }
     public string Firstname { get; set; } = string.Empty;
     public string Lastname { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
@@ -19,9 +18,9 @@ public class User : BaseEntity<long>
         CreatedDate = DateTime.Now;
     }
 
-    public User(Guid userId, string firstname, string lastname, string email, GenderType gender, DateTime dob)
+    public User(Guid userId, string firstname, string lastname, string email, GenderType gender, DateTime dob) : this()
     {   
-        UserId = userId;
+        Id = userId;
         Firstname = firstname;
         Lastname = lastname;
         Email = email;
