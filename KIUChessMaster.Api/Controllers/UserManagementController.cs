@@ -12,7 +12,7 @@ public class UserManagementController : ControllerBase
 
     public UserManagementController(IMediator mediator)
     {
-        _mediator = mediator ??  throw new ArgumentNullException(nameof(mediator));
+        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
     }
 
     [HttpPost("CreateUser")]
@@ -23,8 +23,36 @@ public class UserManagementController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-        
+
         var result = await _mediator.Send(command, cancellationToken);
         return Ok(result);
-    } 
-}
+    }
+
+    [HttpPost("EditUser")]
+    public async Task<IActionResult> EditUser()
+    {
+        throw new NotImplementedException(nameof(EditUser));
+    }
+
+
+    [HttpPost("DeleteUser")]
+    public async Task<IActionResult> DeleteUser()
+    {
+        throw new NotImplementedException(nameof(DeleteUser));
+    }
+
+    [HttpGet("GetUsers")]
+    public async Task<IActionResult> GetUsers()
+    {
+        throw new NotImplementedException(nameof(GetUsers));
+    }
+
+    [HttpGet("GetUser/{id}")]
+    public async Task<IActionResult> GetUser(int id)
+    { 
+        throw new NotImplementedException(nameof(GetUser));
+    }
+    
+    
+
+} 
