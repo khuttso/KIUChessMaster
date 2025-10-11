@@ -31,6 +31,12 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasColumnType("nvarchar")
             .IsRequired()
             .HasMaxLength(100);
+        
+        // Password
+        builder.Property(u => u.Password)
+            .HasColumnType("nvarchar")
+            .IsRequired()
+            .HasMaxLength(200); // adjust length as needed (hashed passwords can be long)
 
         // Gender (enum)
         builder.Property(u => u.Gender)

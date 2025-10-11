@@ -10,6 +10,7 @@ public class User : BaseEntity<Guid>
     public string Email { get; set; } = string.Empty;
     public GenderType Gender { get; set; }
     public DateTime DoB { get; set; }
+    public string Password { get; set; } = string.Empty;
 
     public User()
     {

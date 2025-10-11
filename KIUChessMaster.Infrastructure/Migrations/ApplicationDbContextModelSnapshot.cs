@@ -103,6 +103,10 @@ namespace KIUChessMaster.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime(6)");
 
